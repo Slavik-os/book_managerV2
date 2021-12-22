@@ -51,16 +51,16 @@ document.getElementById('submit').addEventListener('click',()=>{
     }
 
     let err = []; // push errors to list 
-// validate(title,'\\S');
-// validate(authName,'\\w');
-// validate(date,'\\w');
-// validate(lang,'\\w');
-// validate(email,'(\\S+@[aA-zZ]+\\.\\w+)');
-// validate(price,'(^(\\d{1,5},\\d{1,2})$)|(^(\\d{1,5})$)');
-// if(radio == null){
-//     err.push('error');
-//     alert('Please select a type');
-// }
+    validate(title,'\\S');
+    validate(authName,'\\w');
+    validate(date,'\\w');
+    validate(lang,'\\w');
+    validate(email,'(\\S+@[aA-zZ]+\\.\\w+)');
+    validate(price,'(^(\\d{1,5},\\d{1,2})$)|(^(\\d{1,5})$)');
+    if(radio == null){
+        err.push('error');
+        alert('Please select a type');
+    }
 // end validatin
 
     if (!err.length==0){

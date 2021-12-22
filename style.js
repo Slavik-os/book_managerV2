@@ -1,3 +1,5 @@
+
+
 function getdate(){
     let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     let date = new Date ; 
@@ -7,6 +9,9 @@ function getdate(){
 }
 
 getdate();
+
+
+let css  = document.querySelectorAll('link[rel=stylesheet]');
 
 function switch_on(){
     let sun = document.getElementById('sun');
@@ -18,9 +23,9 @@ function switch_on(){
     function frame(){
         if(pos == 360){
             clearInterval(id);
-            sun.style.color ='#000';
-            sun.classList.remove('fa-sun');
-            sun.className+=' fa-moon';
+            sun.style.color ='#fff';
+            sun.classList.remove('fa-moon');
+            sun.className+=' fa-sun';
             sun.removeAttribute('onclick');
             sun.setAttribute('onclick','switch_off()');
 
@@ -28,8 +33,9 @@ function switch_on(){
             pos++;
             sun.style.transform = 'rotate('+pos+'deg)';
         }			
-    }	
+    }
 
+    css[1].href='main.css';
 }
 
 function switch_off(){
@@ -42,9 +48,9 @@ function switch_off(){
     function frame(){
         if(pos == 360){
             clearInterval(id);
-            sun.style.color = '#fff';
-            sun.classList.remove('fa-moon');
-            sun.className+=' fa-sun';
+            sun.style.color = '#000';
+            sun.classList.remove('fa-sun');
+            sun.className+=' fa-moon';
             sun.removeAttribute('onclick');
             sun.setAttribute('onclick','switch_on()');
 
@@ -52,7 +58,9 @@ function switch_off(){
             pos++;
             sun.style.transform = 'rotate('+pos+'deg)';
         }			
-    }	
+    }
+
+    css[1].href='light.css';
 
 }
 

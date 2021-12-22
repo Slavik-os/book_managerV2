@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">     
+	<link rel="stylesheet"  href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+	<link rel="stylesheet"  href="main.css" disable >
+	<title>Document</title>
+</head>
+<body>
+	<header>
+		<span>Book Manager</span>
+		<span id='date-js'></span>
+	</header>
+
+	<div class="container">
+
+			<div class="switcher"><i onclick='switch_on();' id='sun' class='fa fa-sun'></i></div>
+			<div class="header">
+				<div class="input-container">
+					<span class='input-holder'><input type="text" id='title' placeholder="title ...."> <i class="fas fa-heading"></i></span>
+					<span class='input-holder'><input type="text" id='Auth-name' placeholder="Author Name ...."><i class="fas fa-user"></i></span>
+					<span class='input-holder'><input type="text" id='price' placeholder='Price ....'><i class="fas fa-wallet"></i> </span>
+					<span class='input-holder'><input type="date" id='date'><i class="fas fa-table"></i></span>
+					<span class='input-holder'><input type="text" id='email' placeholder="email ...."> <i class="fas fa-envelope-open-text"></i></span>
+					<span class='input-holder'>
+						<select name="language" id="lang">
+							<option value="" disabled selected>Select A Language</option>
+							<option  value="English">English</option>
+							<option value="Arabic">Arabic</option>
+							<option value="Frensh">Frensh</option>
+							<option value="Spanish">Spanish</option>
+							<option value="German">German</option>
+						</select><i class="fas fa-language"></i>
+					</span>
+				
+					<button id='submit' class='input-holder submit' >Submit</button>
+					<span class='input-holder radio'> 
+						<span><label for="radio">Comics</label><input name='radio' value='Comics' type="radio"></span>
+						<span><label for="radio">Novel</label><input  name='radio' value='Novel' type="radio"></span>
+						<span><label for="radio">Fantacy</label><input  name='radio' value='Fantacy' type="radio"></span>
+					</span>
+				</div>
+			<div id="set-error"></div>
+			<div id='box-open' class="alert-layout">
+				<div class="alert-box">
+					<i onclick="close_box()" class='fa fa-times'></i>
+					<p id='book-information'>The</p>
+				</div>
+			</div>
+		</div>
+		<div clas='printer_holder'><i class="fas fa-print" onclick="printer()" ></i></div>
+		<div class="table-container">
+			<table id='table'>
+				<tr class='first-tr'>
+					<th>Date</th>
+					<th>Auth.Name</th>
+					<th>Email</th>
+					<th>Title</th>
+					<th>Price</th>
+					<th>Type</th>
+					<th>Language</th>
+					<th>utils</th>
+				</tr>
+				</table>
+			
+		</div>
+	</div>
+
+	<script src='style.js'></script>
+	<script src='js.js'></script>
+
+</body>
+</html>

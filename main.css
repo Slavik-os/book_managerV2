@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,400;1,500;1,700&display=swap');
+*{
+    padding : 0 ; 
+    margin : 0 ; 
+    box-sizing: border-box;
+}
+header {
+    color   : #fff;
+    background : #000000;
+    padding : 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.11em;
+
+}
+#date-js{
+    float : right;
+    font-size: 13px;
+    letter-spacing: 0.11em;
+}
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background: #18171C;
+}
+.switcher{
+    position: relative;
+}
+.fa-sun , .fa-moon {
+    position: absolute;
+    padding : 10px;
+    right: 2%;
+    cursor: pointer;
+    font-size : 50px;
+    color : #fff;
+    float: right;
+    
+}
+
+
+/* inputs */
+.header {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+.input-container {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.input-holder {
+    position: relative;
+    width: 273px;
+    height: 35px;
+    margin : 3em 10em  2em 0;
+}
+input[type=text] ,input[type=date]{
+    padding : 10px;
+    width: 273px;
+    height: 35px;
+    background: none;
+    border : none;
+    border-bottom:  1px solid #fff;
+    outline: none;
+    color : #fff;
+} input[type="date"]::-webkit-calendar-picker-indicator {
+        font-size: 50px;
+        bottom: 0;
+        background: transparent;
+        color: transparent;
+        cursor: pointer;
+        height: auto;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: auto;
+ } 
+::placeholder {
+    font-family: 'Roboto';
+    font-size : 15px;
+    color: #FFFFFF;
+}
+select {
+    width: 273px;
+    height: 35px;
+    background: none;
+    border: none ; 
+    color :#fff;
+    border-bottom:  1px solid #fff;
+    outline: none;
+}
+ option {
+    -webkit-appearance: menulist-button;
+    color :#fff;
+    background-color : #fff;
+    padding : 200px;    
+
+}
+.input-holder i {
+    color : #fff;
+    font-size :15px;
+    padding : 5px 5px 5px 0;
+    position: absolute;
+    height: 31px;
+    top : 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.fa-table {
+    cursor: pointer;
+    z-index: 0;
+    position: absolute;
+}
+.radio {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.radio span label {
+    font-size : 15px ;
+    color : #fff;
+    font-family: 'Roboto'; 
+    text-transform: capitalize;
+    padding-right : 10px ;
+}
+input[type=radio]{
+    transform: scale(2); 
+}
+.input-holder .fas {
+    font-size : 20px;
+}
+/* inputs end */
+
+#set-error {
+    padding: 20px;
+    font-size : 20px; 
+    color : red ;
+    font-family: 'Roboto';
+    font-weight: bold;
+}
+.submit {
+    cursor: pointer;
+    border-radius: 8px; 
+    font-size: 20px;
+    width: 157px;
+    height: 45px;
+    color : #fff;
+    font-family: 'Roboto';
+    border : none ;
+    background : #000;
+    letter-spacing: 0.11em;
+}
+.printer_holder {
+    width: 100%;
+}
+.fa-print{
+    color : #fff;
+    font-size : 40px;
+    float : right;
+    padding-right : 3%;
+}
+.table-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+table {
+    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin-top : 5em;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    width: 1446px;
+}
+
+
+table th {
+    background : #18171C;
+    color : #fff;
+    font-size : 15px;
+    padding-left : 24px;
+    padding-bottom: 4px;
+}
+table tr{
+    background: #2E2E38;
+    filter: drop-shadow(0px 12px 20px rgba(0, 0, 0, 0.39));
+
+}
+
+
+table tr:nth-child(odd){background: #26252B;}
+table td {padding :24px;}
+
+.first-tr {background :#18171C }
+.first-tr th {
+    padding : 10px;
+    background : #18171C !important;
+}
+
+table tr td {
+    color : #fff;
+    letter-spacing: 0.06em;
+    font-size : 14px;
+    color: #B3AEBF;
+}
+td:last-child {
+    margin : 0;
+    padding : 0 ;
+}
+.fa-trash {color : red;}
+.fa-edit , .fa-trash , .fa-info-circle ,.fa-times,.fa-check {
+    cursor: pointer;
+    font-size : 17px !important;
+    padding-left : 10px;
+}
+
+#box-open {
+    display: none;
+}
+.alert-layout {
+    position: absolute;
+    z-index: 1;
+    width:100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.562);
+    font-family: 'Montserrat';
+}
+.alert-box {
+    position: relative;
+    color : #fff;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    width: 900px;
+    height: 200px;
+    background:#000;
+    opacity: 100% !important;
+}
+.alert-box p {
+    padding : 0 20px;
+    font-weight: bold;
+}
+.alert-box .fa-times {
+    position: absolute;
+    right: 2%;
+    top : 2%;
+    color : #fff;
+    font-size : 20px;
+}

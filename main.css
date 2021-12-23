@@ -20,7 +20,10 @@ header {
     font-size: 13px;
     letter-spacing: 0.11em;
 }
+
+
 .container {
+    padding-top : 10%;
     width: 100%;
     min-height: 100vh;
     background: #18171C;
@@ -30,11 +33,11 @@ header {
 }
 .fa-sun , .fa-moon {
     position: absolute;
-    padding : 10px;
+    padding-bottom: 500px;
     right: 2%;
     cursor: pointer;
     font-size : 50px;
-    color : #fff;
+    color : #000;
     float: right;
     
 }

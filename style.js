@@ -70,8 +70,13 @@ function printer(){
     mywindow.document.write('<html><head><title></title>');
     mywindow.document.write( "<link rel=\"stylesheet\" href=\"main.css\" type=\"text/css\" media=\"print\"/>" );
     mywindow.document.write('</head><body >');
+    mywindow.document.write('<style>#table{width:100%}; </style>')
     mywindow.document.write(table.outerHTML);
     mywindow.document.close();
     mywindow.focus();
-    setTimeout(function(){mywindow.print();},1000);
+    setTimeout(function(){mywindow.print();},3000);
+}
+
+function close_box() {
+    document.getElementById('box-open').style.display='none'; 
 }

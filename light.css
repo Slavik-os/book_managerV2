@@ -25,6 +25,7 @@ header {
     letter-spacing: 0.11em;
 }
 .container {
+    padding-top : 10%;
     width: 100%;
     min-height: 100vh;
     background: #fff;
@@ -34,7 +35,6 @@ header {
 }
 .fa-sun , .fa-moon {
     position: absolute;
-    padding : 10px;
     right: 2%;
     cursor: pointer;
     font-size : 50px;
@@ -200,13 +200,16 @@ table th {
     padding-bottom: 4px;
 }
 table tr{
-    background: #2E2E38;
+    background: #dddddd;
     filter: drop-shadow(0px 12px 20px rgba(0, 0, 0, 0.39));
+    animation-name : shiftRow;
+    animation-duration: 1s;
+    animation-timing-function: 1s;
 
 }
 
 
-table tr:nth-child(odd){background: #26252B;}
+table tr:nth-child(odd){background: #c1c2c2 ;}
 table td {padding :24px;}
 
 .first-tr {background :#18171C }
@@ -219,7 +222,7 @@ table tr td {
     color : #fff;
     letter-spacing: 0.06em;
     font-size : 14px;
-    color: #B3AEBF;
+    color: #000;
 }
 td:last-child {
     margin : 0;
@@ -269,4 +272,10 @@ td:last-child {
     top : 2%;
     color : #fff;
     font-size : 20px;
+}
+
+@keyframes shiftRow {
+    from {transform: translateX(40%);}
+    to {transform: translateX(0);}
+    
 }

@@ -21,7 +21,6 @@ let book_list = []  ;
 book_list = JSON.parse(localStorage.getItem('book_list'));
 if(book_list == null){
     book_list = [] ;
-    
 }
 else {
     book_list = JSON.parse(localStorage.getItem('book_list'));
@@ -51,9 +50,9 @@ document.getElementById('submit').addEventListener('click',()=>{
     }
 
     let err = []; // push errors to list 
-    validate(title,'\\S');
-    validate(authName,'\\w');
-    validate(date,'\\w');
+    validate(title,'\\S+');
+    validate(authName,'\\S+');
+    validate(date,'\\d{1,4}-\\d{1,2}-\\d{1,4}');
     validate(lang,'\\w');
     validate(email,'(\\S+@[aA-zZ]+\\.\\w+)');
     validate(price,'(^(\\d{1,5},\\d{1,2})$)|(^(\\d{1,5})$)');
@@ -137,15 +136,18 @@ let info = (element)=>{
     let p = document.getElementById('book-information');
     parent = element.parentElement.parentElement;
     rowIndex = parent.rowIndex - 1;
-    console.log( book_list[rowIndex].info());
     p.innerText= book_list[rowIndex].info();
 }
 
 let remove = (element)=>{
     parent = element.parentElement.parentElement;
     rowIndex = parent.rowIndex - 1;
+    localStorage.removeItem(book_list[rowIndex]);
     book_list.splice(rowIndex,1);
     element.parentElement.parentElement.remove();
+    book_list.sort((a,b)=>(a.date > b.date)?1:-1); // sort the list by date
+    localStorage.setItem('book_list',JSON.stringify(book_list)); // synchronize the local storage again
+    console.log(book_list)
 }
 
 let check = (element)=>{
@@ -159,7 +161,7 @@ let check = (element)=>{
     }
 
     parent = element.parentElement.parentElement;
-    rowIndex = parent.rowIndex - 1;
+    rowIndex = parent.rowIndex - 1;      // Get row index 
     let err_list = [] ;
     
     book_list[rowIndex].date = parent.children[0].innerText;
@@ -169,13 +171,10 @@ let check = (element)=>{
     book_list[rowIndex].price = parent.children[4].innerText;
     book_list[rowIndex].type = parent.children[5].innerText;
     book_list[rowIndex].lang = parent.children[6].innerText;
-    console.log(book_list[rowIndex].email)
-    console.log(book_list[rowIndex].date)
-    console.log(book_list[rowIndex].price)
     validateTd('\\d{1,4}-\\d{1,2}-\\d{1,4}',book_list[rowIndex].date);
-    validateTd('\\w',book_list[rowIndex].authName);
+    validateTd('(\\w.){5,20}',book_list[rowIndex].authName);
     validateTd('(\\S+@[aA-zZ]+\\.\\w+)',book_list[rowIndex].email);
-    validateTd('\\w',book_list[rowIndex].title);
+    validateTd('(\\w.){5,20}',book_list[rowIndex].title);
     validateTd('\\d',book_list[rowIndex].price);
     validateTd('\\w',book_list[rowIndex].type);
     validateTd('\\w',book_list[rowIndex].lang);
@@ -190,11 +189,10 @@ let check = (element)=>{
         element.classList.remove('fa-check');
         element.className +=' fa-edit';
         element.setAttribute('onclick','edit(this)');
+        localStorage.setItem('book_list',JSON.stringify(book_list)); // synchronize the local storage again
+        book_list.sort((a,b)=>(a.date > b.date)?1:-1); // sort the list by date
     }
 }
 
 
-function close_box() {
-    document.getElementById('box-open').style.display='none'; 
-}
 console.log(book_list);

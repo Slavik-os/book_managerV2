@@ -6,12 +6,12 @@ class Book {
         this.title    = title ; 
         this.price    = price ; 
         this.type     = type ;
-        this.lang     = lang
+        this.lang     = lang ; 
     }
-    info(){
+        info(){
 
-        return 'The '+this.title+' book is a '+this.type+' in the '+this.lang+' witten by '+this.authName+' and published on the '+this.date+'. The price of '+this.title+' is '+this.price+' $ .' ;
-    }
+                return 'The '+this.title+' book is a '+this.type+' in the '+this.lang+' witten by '+this.authName+' and published on the '+this.date+'. The price of '+this.title+' is '+this.price+' $ .' ;
+        }
 }
 
 
@@ -122,6 +122,10 @@ document.getElementById('submit').addEventListener('click',()=>{
 
 let edit = (element)=>{
     parent = element.parentElement.parentElement.children;
+    
+    for (let child of parent){
+        child.setAttribute('contenteditable','true');
+    }
     for (let i = 0 ; i < parent.length -1 ;i++){
         parent[i].setAttribute('contenteditable','true');
     }
@@ -157,6 +161,7 @@ let check = (element)=>{
         let strReg = new RegExp(regEx,'g');
         if (!strReg.test(str)){
             err_list.push('error');
+            console.log(str);
         }
     }
 
@@ -171,20 +176,19 @@ let check = (element)=>{
     book_list[rowIndex].price = parent.children[4].innerText;
     book_list[rowIndex].type = parent.children[5].innerText;
     book_list[rowIndex].lang = parent.children[6].innerText;
-    validateTd('\\d{1,4}-\\d{1,2}-\\d{1,4}',book_list[rowIndex].date);
-    validateTd('(\\w.){5,20}',book_list[rowIndex].authName);
+    validateTd('\\d{1,4}-\\d{1,2}-\\d{1,2}',book_list[rowIndex].date);
+    validateTd('\\S+',book_list[rowIndex].authName);
     validateTd('(\\S+@[aA-zZ]+\\.\\w+)',book_list[rowIndex].email);
-    validateTd('(\\w.){5,20}',book_list[rowIndex].title);
-    validateTd('\\d',book_list[rowIndex].price);
+    validateTd('\\S+',book_list[rowIndex].title);
+    validateTd('\\d{1,5}',book_list[rowIndex].price);
     validateTd('\\w',book_list[rowIndex].type);
     validateTd('\\w',book_list[rowIndex].lang);
     if(!err_list.length==0){
-        alert('Plase Fill all the inputs')
+        alert('Plase Fill all the inputs');
     }else {
-
-        for (let i = 0 ; i < parent.length -1 ;i++){
-            parent[i].setAttribute('contenteditable','false');
-        }
+        for (let child of parent.children){
+            child.setAttribute('contenteditable','false')
+        } 
         element.removeAttribute('onclick');
         element.classList.remove('fa-check');
         element.className +=' fa-edit';
@@ -194,5 +198,3 @@ let check = (element)=>{
     }
 }
 
-
-console.log(book_list);
